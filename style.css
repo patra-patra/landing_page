@@ -1,0 +1,76 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f8ff;
+    color: #333;
+}
+
+header {
+    background: #00aaff;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+section {
+    padding: 2rem;
+    max-width: 960px;
+    margin: auto;
+}
+
+h1, h2 {
+    color: #0077aa;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+    ul li::before {
+        content: "✔ ";
+        color: green;
+    }
+
+.cta {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+    .cta a {
+        background: #ff6600;
+        color: white;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+
+        .cta a:hover {
+            background: #e05500;
+        }
+
+footer {
+    background: #0077aa;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.reviews blockquote {
+    background: #e0f7ff;
+    padding: 1rem;
+    border-left: 5px solid #00aaff;
+    margin: 1rem 0;
+}
+
+.app-links a {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #0077aa;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
