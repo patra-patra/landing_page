@@ -1,4 +1,18 @@
-﻿body {
+﻿@font-face {
+    font-family: 'Rubik Mono One';
+    src: url('fonts/RubikMonoOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype-variations');
+    font-weight: 100 900; 
+    font-stretch: 75% 100%;
+}
+
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -7,20 +21,41 @@
 }
 
 header {
-    background: #00aaff;
-    color: white;
-    padding: 2rem;
-    text-align: center;
+    background: white;
+    color: #ff9c00;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.5s ease;
 }
+    header img {
+        width: 100px;
+        margin: 15px 0 10px 40px;
+    }
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+    padding-right: 40px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background 0.5s ease;
+}
+
+    .main-nav a {
+        color: #ff9c00;
+        text-decoration: none;
+    }
+
+        .main-nav a:hover {
+            color: #e05500;
+        }
 
 section {
     padding: 2rem;
     max-width: 960px;
     margin: auto;
-}
-
-h1, h2 {
-    color: #0077aa;
 }
 
 ul {
@@ -74,3 +109,60 @@ footer {
     text-decoration: none;
     border-radius: 5px;
 }
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-color: #00aaff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 40px 40px 0 0;
+}
+
+.main {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+.header-text {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: white;
+/*    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);*/
+    max-width: 40%;
+}
+
+    .header-text h1 {
+        font-family: 'Rubik Mono One', sans-serif;
+        font-size: 60px;
+        margin: 0 0 1rem;
+        line-height: 1.11em;
+    }
+
+    .header-text p {
+        font-size: 35px;
+        margin: 0;
+        line-height: 1em;
+    }
+
+.learn_more {
+    font-family: 'Open Sans', sans-serif; /* Подключаем Open Sans */
+    font-size: 15px;
+    font-weight: 600; /* Можно выбрать от 100 до 900 (стандартные: 400-normal, 600-semi-bold, 700-bold) */
+    font-weight: normal;
+    color: white;
+    background-color: #ff9c00;
+    border-radius: 40px;
+    padding: 15px;
+    border: none;
+    transition: background 0.5s ease;
+}
+
+    .learn_more:hover {
+        background-color: #e05500;
+    }
