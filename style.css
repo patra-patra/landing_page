@@ -164,9 +164,25 @@ footer {
     border-radius: 5px;
 }
 
-/* Анимация смены фоновых изображений */
-@keyframes changeBackground {
-    0%, 11.11% {
+.review_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+    .review_row img {
+        width: 70px;
+        border-radius: 50%;
+    }
+
+    .review_row blockquote {
+        margin-left: 40px;
+    }
+
+    /* Анимация смены фоновых изображений */
+    @keyframes changeBackground {
+        0%, 11.11% {
         background-image: url('img/frames/1.png');
     }
 
