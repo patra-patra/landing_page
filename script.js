@@ -3,24 +3,33 @@ const cards = Array.from(track.children);
 const prevBtn = document.querySelector('.carousel-btn.prev');
 const nextBtn = document.querySelector('.carousel-btn.next');
 
-let currentIndex = 0;
+let index = 0;
 
-function updateCarousel() {
-    cards.forEach(card => card.classList.remove('active'));
-    cards[currentIndex].classList.add('active');
-    const offset = -cards[currentIndex].offsetLeft + (track.offsetWidth - cards[currentIndex].offsetWidth) / 2;
-    track.style.transform = `translateX(${offset}px)`;
+// Функция отображения 3 карточек: предыдущая, текущая и следующая
+function showCards(i) {
+    track.innerHTML = ''; // Очищаем контейнер
+
+    const total = cards.length;
+
+    const prevIndex = (i - 1 + total) % total;
+    const currIndex = i % total;
+    const nextIndex = (i + 1) % total;
+
+    track.appendChild(cards[prevIndex].cloneNode(true));
+    track.appendChild(cards[currIndex].cloneNode(true));
+    track.appendChild(cards[nextIndex].cloneNode(true));
 }
 
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    updateCarousel();
-});
+// Инициализация
+showCards(index);
 
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    updateCarousel();
-});
+// Кнопки навигации
+nextBtn.onclick = () => {
+    index = (index + 1) % cards.length;
+    showCards(index);
+};
 
-// Центрируем изначально активный элемент
-window.addEventListener('load', updateCarousel);
+prevBtn.onclick = () => {
+    index = (index - 1 + cards.length) % cards.length;
+    showCards(index);
+};

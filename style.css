@@ -273,6 +273,7 @@ footer {
 
 .carousel-container {
     width: 100%;
+    max-width: 1000px; /* ограничиваем ширину */
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -280,29 +281,28 @@ footer {
 
 .carousel-track {
     display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: stretch;
     transition: transform 0.5s ease;
 }
 
 .product-card {
-    flex: 0 0 300px;
-    margin: 0 20px;
+    flex: 0 0 300px; /* каждая карточка — фиксированной ширины */
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 20px;
-    transform: scale(0.9);
-    transition: transform 0.3s;
-    opacity: 0.6;
-    z-index: 0;
+    transform: scale(0.95);
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0.8;
 }
 
     .product-card.active {
-        transform: scale(1.1);
+        transform: scale(1.05);
         opacity: 1;
-        z-index: 1;
     }
-
     .product-card img {
         width: 100%;
         border-radius: 12px;
@@ -325,10 +325,11 @@ footer {
     color: white;
     font-size: 24px;
     cursor: pointer;
-    padding: 10px;
+    padding: 10px 16px;
     border-radius: 50%;
     transition: background-color 0.3s;
     z-index: 2;
+    margin: 0 10px;
 }
 
     .carousel-btn:hover {
