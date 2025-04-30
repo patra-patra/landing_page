@@ -88,6 +88,7 @@ header {
     color: white;
 }
     #third img {
+        margin-top: 30px;
         width: 400px;
         border-radius: 40px;
     }
@@ -108,6 +109,7 @@ header {
 #fourth {
     padding-bottom: 60px;
     padding-top: 30px;
+    background-color: #b2e5ff;
 }
     #fourth h2 {
         color: #00aaff;
@@ -121,27 +123,64 @@ ul {
 }
     ul li::before {
         content: "✔ ";
-        color: #e05500;
+        color: #ff9c00;
     }
 
-.cta {
+
+#sale {
+    position: relative;
     text-align: center;
-    margin: 2rem 0;
+    color: white;
+    padding-top: 50px;
+    height: 700px;
+    background-color: #85d6ff;
 }
-    .cta a {
-        background: #ff6600;
-        color: white;
-        padding: 1rem 2rem;
-        text-decoration: none;
-        border-radius: 10px;
+
+.sale-banner {
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+}
+    .sale-banner img {
+        width: 100%;
+        max-width: 900px;
+        display: block;
+        margin-bottom: 40px;
+    }
+
+    .sale-banner h2 {
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        line-height: 1.4em;
+        padding: 0 10px;
+        background-color: rgb(255,239,143, 0.6);
+        width: 90%; /* Занимает 90% ширины баннера */
+        max-width: 800px; /* Но не больше 800px */
+        box-sizing: border-box;
+        white-space: normal; /* Разрешает перенос */
+        text-align: center;
+        border-radius: 20px; /* Скругление углов */
+        box-shadow: 0 0 15px rgba(255, 239, 143, 0.4), /* Тень справа */
+        0 0 15px rgba(255, 239, 143, 0.4), /* Тень слева */
+        0 0 26px rgba(255, 239, 143, 0.4), /* Тень снизу */
+        0 0 15px rgba(255, 239, 143, 0.4); /* Тень сверху */
+        margin: 40px 0; /* Отступы сверху и снизу */
+    }
+
+    .sale-banner span {
+        display: inline-block;
+        margin-top: 10px;
+        background-color: rgba(0, 170, 255);
+        padding: 8px 16px;
+        border-radius: 12px;
         font-weight: bold;
     }
-        .cta a:hover {
-            background: #e05500;
-        }
 
 footer {
-    background: #0077aa;
+    background: #00aaff;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -185,16 +224,27 @@ footer {
         color: #00aaff;
     }
 
+#products-carousel {
+    padding: 200px 20px 100px 20px;
+    height: 580px; /* Уменьшенная высота секции */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+    #products-carousel h2 {
+        text-align: center;
+    }
+
+
 .image-wrapper {
+    background-color: #00aaff;
     position: relative;
     width: 100%;
-    height: 600px;
-    background-color: #00aaff;
+    height: 500px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     overflow: hidden;
-    border-radius: 40px;
     background-size: cover;
     background-position: center;
     animation: changeBackground 3s infinite ease-in-out;
@@ -236,7 +286,6 @@ footer {
 
 #fifth {
     background-color: white;
-    padding: 0 0 2px 0;
     color: white;
 }
     #fifth h2 {
@@ -268,7 +317,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 0;
+    padding-bottom: 100px;
 }
 
 .carousel-container {
@@ -302,7 +351,7 @@ footer {
     pointer-events: none; /* Чтобы клики не срабатывали на боковых карточках */
     min-height: 200px;
     max-height: 450px;
-    margin-top: 40px; /* Отступ сверху для карточек */
+    margin-top: 60px; /* Отступ сверху для карточек */
 }
     .product-card.active {
         transform: scale(1.15);
@@ -336,7 +385,7 @@ footer {
     border-radius: 50%;
     transition: background-color 0.3s;
     z-index: 2;
-    margin: 0 -90px 100px 0;
+    margin: 0 -70px 100px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -346,7 +395,7 @@ footer {
         background-color: #e05500;
     }
     .carousel-btn.next {
-        margin: 0 0 100px -90px;
+        margin: 0 0 100px -70px;
     }
 /* Анимация смены фоновых изображений */
 @keyframes changeBackground {
@@ -408,6 +457,88 @@ footer {
         padding-right: 10px; /* промежуток между копиями фразы */
     }
 
+#newsletter {
+    background-color: #00aaff;
+    padding: 60px 20px;
+    color: white;
+}
+
+.newsletter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.newsletter-content {
+    flex: 1;
+}
+
+.newsletter-image {
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.newsletter-text {
+    font-size: 18px;
+    margin: 20px 0;
+    color: #fff;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+}
+
+    .newsletter-form input {
+        flex: 1;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+    }
+
+    .newsletter-form button {
+        background-color: #ff9c00;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .newsletter-form button:hover {
+            background-color: #e05500;
+        }
+
+.newsletter-note {
+    font-size: 14px;
+    margin-top: 10px;
+    color: rgba(255,255,255,0.7);
+}
+
+@media (max-width: 768px) {
+    .newsletter-container {
+        flex-direction: column;
+    }
+
+    .newsletter-image {
+        width: 100%;
+        max-width: 400px;
+        order: -1;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
 @keyframes scroll-left {
     0% {
         transform: translateX(0%);
@@ -417,3 +548,5 @@ footer {
         transform: translateX(-50%);
     }
 }
+
+
