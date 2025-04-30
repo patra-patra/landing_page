@@ -274,6 +274,7 @@ footer {
 .carousel-container {
     width: 100%;
     max-width: 1000px; /* ограничиваем ширину */
+    height: 700px; /* высота контейнера */
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -281,39 +282,43 @@ footer {
 
 .carousel-track {
     display: flex;
-    gap: 40px;
+    gap: -40px;
     justify-content: center;
     align-items: stretch;
     transition: transform 0.5s ease;
 }
 
 .product-card {
-    flex: 0 0 300px; /* каждая карточка — фиксированной ширины */
+    flex: 0 0 250px;
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 20px;
-    transform: scale(0.95);
-    transition: transform 0.3s, opacity 0.3s;
-    opacity: 0.8;
+    transform: scale(0.9);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none; /* Чтобы клики не срабатывали на боковых карточках */
+    min-height: 200px;
+    max-height: 450px;
+    margin-top: 40px; /* Отступ сверху для карточек */
 }
-
     .product-card.active {
-        transform: scale(1.05);
+        transform: scale(1.15);
         opacity: 1;
+        z-index: 2;
+        pointer-events: auto; /* Включаем клики только на центральной карточке */
     }
     .product-card img {
         width: 100%;
         border-radius: 12px;
         margin-bottom: 12px;
     }
-
     .product-card h3 {
         font-size: 18px;
         margin: 10px 0 5px;
     }
-
     .product-card p {
         font-size: 14px;
         color: #555;
@@ -325,17 +330,24 @@ footer {
     color: white;
     font-size: 24px;
     cursor: pointer;
-    padding: 10px 16px;
+    padding: 0;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     transition: background-color 0.3s;
     z-index: 2;
-    margin: 0 10px;
+    margin: 0 -90px 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
     .carousel-btn:hover {
         background-color: #e05500;
     }
-
+    .carousel-btn.next {
+        margin: 0 0 100px -90px;
+    }
 /* Анимация смены фоновых изображений */
 @keyframes changeBackground {
     0%, 11.11% {

@@ -1,35 +1,48 @@
 const track = document.querySelector('.carousel-track');
-const cards = Array.from(track.children);
 const prevBtn = document.querySelector('.carousel-btn.prev');
 const nextBtn = document.querySelector('.carousel-btn.next');
 
-let index = 0;
+let cards = Array.from(track.children);
+let i = 0;
 
-// Функция отображения 3 карточек: предыдущая, текущая и следующая
-function showCards(i) {
-    track.innerHTML = ''; // Очищаем контейнер
+function updateCarousel() {
+    // Ограничения для индекса
+    if (i < 0) i = cards.length - 1;
+    if (i > cards.length - 1) i = 0;
 
-    const total = cards.length;
+    // Очистка трека
+    track.innerHTML = '';
 
-    const prevIndex = (i - 1 + total) % total;
-    const currIndex = i % total;
-    const nextIndex = (i + 1) % total;
+    // Определяем 3 карточки: предыдущая, текущая (центральная), следующая
+    const prevIndex = (i - 1 + cards.length) % cards.length;
+    const nextIndex = (i + 1) % cards.length;
 
-    track.appendChild(cards[prevIndex].cloneNode(true));
-    track.appendChild(cards[currIndex].cloneNode(true));
-    track.appendChild(cards[nextIndex].cloneNode(true));
+    const prevCard = cards[prevIndex].cloneNode(true);
+    const currentCard = cards[i].cloneNode(true);
+    const nextCard = cards[nextIndex].cloneNode(true);
+
+    // Удаляем активный класс у всех
+    [prevCard, currentCard, nextCard].forEach(card => card.classList.remove('active'));
+
+    // Добавляем класс активной центральной карточке
+    currentCard.classList.add('active');
+
+    // Добавляем карточки в трек
+    track.appendChild(prevCard);
+    track.appendChild(currentCard);
+    track.appendChild(nextCard);
 }
 
-// Инициализация
-showCards(index);
+// События для кнопок
+nextBtn.addEventListener('click', () => {
+    i++;
+    updateCarousel();
+});
 
-// Кнопки навигации
-nextBtn.onclick = () => {
-    index = (index + 1) % cards.length;
-    showCards(index);
-};
+prevBtn.addEventListener('click', () => {
+    i--;
+    updateCarousel();
+});
 
-prevBtn.onclick = () => {
-    index = (index - 1 + cards.length) % cards.length;
-    showCards(index);
-};
+// Инициализация при загрузке
+updateCarousel();
