@@ -30,7 +30,6 @@ h1, h2 {
     margin: 0;
 }
 
-
 h2 {
     margin: 30px;
 }
@@ -372,7 +371,6 @@ header {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    margin: 0 -50px 80px 0;
 }
 
     .carousel-btn:hover {
@@ -380,11 +378,11 @@ header {
     }
 
     .carousel-btn.prev {
-        left: 0;
+        left: calc(43% - 280px);
     }
 
     .carousel-btn.next {
-        right: 0;
+        right: calc(43% - 280px);
     }
 
 #sale {
@@ -400,15 +398,16 @@ header {
 
 .sale-banner {
     position: relative;
-    display: block;
+    display: inline-block;
     padding: 0;
-    width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    margin: 0 auto;
 }
 
     .sale-banner img {
         width: 100%;
+        max-width: 100%;
         display: block;
         margin-bottom: 20px;
     }
@@ -422,8 +421,7 @@ header {
         line-height: 1.4em;
         padding: 10px;
         background-color: rgba(255, 239, 143, 0.6);
-        width: 90%;
-        max-width: 100%;
+        max-width: calc(100% - 40px);
         box-sizing: border-box;
         text-align: center;
         border-radius: 20px;
@@ -438,6 +436,8 @@ header {
         padding: 8px 16px;
         border-radius: 12px;
         font-weight: bold;
+        max-width: calc(100% - 32px);
+        box-sizing: border-box;
     }
 
 #fifth {
@@ -654,10 +654,11 @@ ul {
     #second h2 {
         margin: 20px;
     }
-    
+
     #third h2 {
         margin: 20px;
     }
+
     .second-content img,
     .third-content img {
         width: 350px;
@@ -674,11 +675,15 @@ ul {
 
 /* Для экранов шире 1200px */
 @media (min-width: 1200px) {
-    .sale-banner img {
-        width: auto;
+    .sale-banner {
         max-width: 900px;
-        margin: 0 auto;
     }
+
+        .sale-banner img {
+            width: auto;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 }
 
 /* АДАПТИВНОСТЬ: до 992px */
@@ -734,6 +739,28 @@ ul {
     }
 }
 
+/* АДАПТИВНОСТЬ: от 576px до 700px */
+@media (min-width: 576px) and (max-width: 700px) {
+    #fourth {
+        padding-left: 0;
+        padding: 30px 20px;
+    }
+
+    .review_row {
+        justify-content: center;
+        text-align: center;
+    }
+
+        .review_row blockquote {
+            margin-left: 0;
+            margin-top: 15px;
+        }
+
+    .product-card p {
+        margin-bottom: 10px;
+    }
+}
+
 /* АДАПТИВНОСТЬ: до 768px */
 @media (max-width: 768px) {
     .header-text {
@@ -763,8 +790,18 @@ ul {
         padding: 0 20px;
     }
 
+    #products-carousel h2 {
+        margin-top: 50px;
+    }
+
+    #fourth {
+        padding-left: 0;
+        padding: 20px;
+    }
+
     .review_row {
         flex-direction: column;
+        justify-content: center;
         text-align: center;
     }
 
@@ -801,8 +838,16 @@ ul {
         overflow: hidden;
     }
 
+        #products-carousel p {
+            margin-bottom: 10px;
+        }
+
     .carousel-container {
         height: 600px;
+    }
+
+    #sale h2 {
+        margin: 20px;
     }
 
     #sale img {
@@ -834,6 +879,7 @@ ul {
             width: 100%;
             max-width: 100%;
         }
+
     h2 {
         margin-bottom: 40px;
     }
@@ -841,6 +887,7 @@ ul {
     #products-carousel h2 {
         margin-top: 70px;
     }
+
     .carousel-container {
         min-height: 450px;
     }
@@ -862,6 +909,14 @@ ul {
             font-size: 12px;
         }
 
+    .carousel-btn.prev {
+        left: calc(50% - 251px);
+    }
+
+    .carousel-btn.next {
+        right: calc(50% - 251px);
+    }
+
     .review_row {
         padding: 0 10px;
         max-width: 100%;
@@ -869,7 +924,7 @@ ul {
 
     .sale-banner h2 {
         font-size: 18px;
-        width: 95%;
+        max-width: calc(100% - 40px);
     }
 
     .marketplaces img {
@@ -950,7 +1005,6 @@ ul {
             font-size: 12px;
         }
 
-
     h2 {
         margin-bottom: 20px;
     }
@@ -961,16 +1015,28 @@ ul {
         font-size: 20px;
     }
 
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
     #products-carousel {
         height: 600px;
     }
+
         #products-carousel h2 {
             margin-top: 70px;
         }
+        #products-carousel  {
+            margin-top: 70px;
+        }
+
     .carousel-container {
         height: 600px;
     }
-
 
     .newsletter-form {
         flex-direction: column;
